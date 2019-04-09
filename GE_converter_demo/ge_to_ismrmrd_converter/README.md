@@ -4,10 +4,16 @@ Orchestra conversion tools
 
 ## To build and install the tools to convert GE raw files into ISMRMRD files:
 
+1.  Start the container for this portion of the demo with a command something like:
+
+    ```bash
+    docker run --name ismrm2019DemoGE --user=$( id -u ) -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/usr/local/orchestra --env HOME=/home/$USER --entrypoint "/bin/bash" -e DISPLAY=$DOCKER_DISPLAY_IP\:0 -it fmrif:ismrm2019Demo
+    ```
+
 1.  Define the `SDKTOP` environment variable:
 
     ```bash
-    export SDKTOP=/fmrif/projects/ESE/Orchestra
+    export SDKTOP=/usr/local/orchestra
     ```
 
 1. Define the `ISMRMRD_HOME` AND `GE_TOOLS_HOME` variables. These specify installation location(s), e.g.
@@ -61,6 +67,12 @@ Orchestra conversion tools
     ```bash
     cmake   -D CMAKE_C_COMPILER=/usr/bin/gcc-6   -D CMAKE_CXX_COMPILER=/usr/bin/g++-6   -D CMAKE_INSTALL_PREFIX=$GADGETRON_HOME   -D HDF5_USE_STATIC_LIBRARIES=yes   -D CMAKE_EXE_LINKER_FLAGS="-lpthread -lz -ldl" ..
     ```
+
+   Please note - using Python gadgets with GE's supplied HDF5-supplied library from Orchestra has
+   proved problematic.  To use Python gadgets, you would need to install the 'ismrmrd' and 'h5py'
+   packages in Python - which require the system's HDF5 library to also be installed (for linking
+   against).  A work-around using GE's HDF5 library has not yet been developed.  For now, use the
+   default gadgetron container.
 
 1. Obtain the GE converter source code:
 
