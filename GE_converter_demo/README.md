@@ -1,7 +1,7 @@
 
 # ISMRM 2019 GE to ISMRMRD converter demo
 
-## Requirements for this session of the class
+## Requirements for this session of the demo
 
 1.  Container environment with Gadgetron installed (container used in previous class sections should suffice).
 
