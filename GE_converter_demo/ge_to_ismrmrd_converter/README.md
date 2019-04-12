@@ -7,13 +7,13 @@ Orchestra conversion tools
 1.  Start the container for this portion of the demo with a command something like:
 
     ```bash
-    docker run --name ismrm2019DemoGE --user=$( id -u ) -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/usr/local/orchestra --env HOME=/home/$USER --entrypoint "/bin/bash" -e DISPLAY=$DOCKER_DISPLAY_IP\:0 -it fmrif:ismrm2019Demo
+    docker run --name ismrm2019DemoGE -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/opt/local/orchestra --entrypoint "bash" -it fmrif:ismrm2019Demo
     ```
 
 1.  Define the `SDKTOP` environment variable:
 
     ```bash
-    export SDKTOP=/usr/local/orchestra
+    export SDKTOP=/opt/local/orchestra
     ```
 
 1. Define the `ISMRMRD_HOME` AND `GE_TOOLS_HOME` variables. These specify installation location(s), e.g.
@@ -21,6 +21,14 @@ Orchestra conversion tools
     ```bash
     export ISMRMRD_HOME=<prefix>/ismrmrd
     export GE_TOOLS_HOME=<prefix>/ge-tools
+    export GADGETRON_HOME=<prefix>/gadgetron
+    ```
+
+1. It's also useful to extend your home environment to include these new locations and the resourses in them
+
+    ```bash
+    export PATH=$PATH:$ISMRMRD_HOME/bin:$GE_TOOLS_HOME/bin:$GADGETRON_HOME/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISMRMRD_HOME/lib:$GE_TOOLS_HOME/lib:$GADGETRON_HOME/lib
     ```
 
 1.  Obtain the ISMRMRD source code:
@@ -50,30 +58,6 @@ Orchestra conversion tools
     cd ../
     ```
 
-1. If using the Gadgetron for reconstruction, obtain and configure code similarly, to use the HDF5 supplied with Orchestra:
-
-    ```bash
-    git clone https://github.com/gadgetron/gadgetron.git
-    cd gadgetron/
-    mkdir build
-    cd build/
-    cmake   -D CMAKE_INSTALL_PREFIX=$GADGETRON_HOME   -D HDF5_USE_STATIC_LIBRARIES=yes   -D CMAKE_EXE_LINKER_FLAGS="-lpthread -lz -ldl" ..
-    make install
-    cd ../
-    ```
-
-    On some systems, with multiple versions of gcc, to force Gadgetron to compile with the appropriate version of gcc (since at least version 6 is required), you can be explicit to cmake about the compiler it should use with a command like:
-
-    ```bash
-    cmake   -D CMAKE_C_COMPILER=/usr/bin/gcc-6   -D CMAKE_CXX_COMPILER=/usr/bin/g++-6   -D CMAKE_INSTALL_PREFIX=$GADGETRON_HOME   -D HDF5_USE_STATIC_LIBRARIES=yes   -D CMAKE_EXE_LINKER_FLAGS="-lpthread -lz -ldl" ..
-    ```
-
-   Please note - using Python gadgets with GE's supplied HDF5-supplied library from Orchestra has
-   proved problematic.  To use Python gadgets, you would need to install the 'ismrmrd' and 'h5py'
-   packages in Python - which require the system's HDF5 library to also be installed (for linking
-   against).  A work-around using GE's HDF5 library has not yet been developed.  For now, use the
-   default gadgetron container.
-
 1. Obtain the GE converter source code:
 
     ```bash
@@ -90,18 +74,17 @@ Orchestra conversion tools
     make install
     cd ../
     ```
-1. Make sure `$ISMRMRD_HOME/bin` and `$GE_TOOLS_HOME/bin` are added to your environment's `PATH` variable, and that `$ISMRMRD_HOME/lib` and `$GE_TOOLS_HOME/lib` are added to your environment's `LD_LIBRARY_PATH` variable, to be able to use the libraries and binaries supplied with these tools.
 
 1. A typical command line to convert the supplied P-file using this library is:
 
    ```bash
-   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P21504_FSE.7
+   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P25088.7
    ```
 
 1. If customized conversion libraries are desired, the corresponding command will be:
 
    ```bash
-   pfile2ismrmrd -v -l libp2i-NIH.so -p NIH2dfastConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P21504_FSE.7
+   pfile2ismrmrd -v -l libp2i-NIH.so -p NIH2dfastConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P25088.7
    ```
 
    The source code that enables this example is included with these tools.  This example is a straightforward copy of the GenericConverter, but it shows how these classes can be inherited from and implemented.
@@ -109,8 +92,31 @@ Orchestra conversion tools
 1. Similarly, a typical command line to convert an example ScanArchive file using this library is:
 
    ```bash
-   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl ScanArchive_FSE.h5
+   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl ScanArchive_of_P25088.h5
    ```
-
    Sample raw data files are now in the 'sampleData' directory.
+
+1. Start the Gadgetron container with the command:
+
+    ```bash
+    docker run --name gadgetron -v /Users:/home -t --detach  gadgetron/ubuntu_1804_no_cuda
+    ```
+
+1. Enter the running Gadgetron container in an interactive session:
+
+    ```bash
+    docker exec -it gadgetron bash
+    ```
+
+1. Reconstruct one of the converted data sets by sending to Gadgetron:
+
+    ```bash
+    gadgetron_ismrmrd_client -f testdata.h5
+    ```
+
+1. Reconstruct the converted B0 field-map data set by installing the B0 field map computation gadget, and processing chain, the running the command:
+
+    ```bash
+    gadgetron_ismrmrd_client -f testdata.h5 -c fieldMapFloat.xml
+    ```
 
