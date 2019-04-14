@@ -2,7 +2,7 @@
 
 Orchestra conversion tools
 
-## To build and install the tools to convert GE raw files into ISMRMRD files:
+## Steps and commands to build and install the tools, convert GE raw files into ISMRMRD files, and perform reconstructions using the Gadgetron:
 
 1.  Start the container for this portion of the demo with a command something like:
 
