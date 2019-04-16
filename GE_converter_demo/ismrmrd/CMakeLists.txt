@@ -49,7 +49,7 @@ if (WIN32)
     add_definitions(-D__func__=__FUNCTION__)
 else ()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -D_GLIBCXX_USE_CXX11_ABI=0")
 endif ()
 
 #  ---   VERSIONING  (begin) ----

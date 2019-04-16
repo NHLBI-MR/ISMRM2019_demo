@@ -16,7 +16,7 @@ Orchestra conversion tools
     export ISMRM_DEMO_PREFIX=/opt/local
     ```
 
-2.  Define the `SDKTOP` environment variable:
+1.  Define the `SDKTOP` environment variable:
 
     ```bash
     export SDKTOP=$ISMRM_DEMO_PREFIX/orchestra
@@ -58,22 +58,21 @@ Orchestra conversion tools
     ```bash
     mkdir build
     cd build/
-    cmake -D CMAKE_INSTALL_PREFIX=$ISMRMRD_HOME -D HDF5_USE_STATIC_LIBRARIES=yes ..
+    cmake -D Boost_INCLUDE_DIR=$SDKTOP/include/recon/3p/Linux/boost_1_55_0_dev_linux64/include/ -D CMAKE_INSTALL_PREFIX=$ISMRMRD_HOME -D HDF5_USE_STATIC_LIBRARIES=yes ..
     make
     make install
     cd ../
     ```
 
-1. Obtain the GE converter source code:
+1. Navigate to the GE converter source code folder:
 
     ```bash
-    git clone https://github.com/ismrmrd/ge_to_ismrmrd.git
+    cd ../../ge_to_ismrmrd_converter/
     ```
 
 1. Configure, compile and install the converter:
 
     ```bash
-    cd ge_to_ismrmrd/
     mkdir build
     cd build/
     cmake -D CMAKE_INSTALL_PREFIX=$GE_TOOLS_HOME ..
@@ -81,7 +80,7 @@ Orchestra conversion tools
     cd ../
     ```
 
-1. A typical command line to convert the supplied P-file using this library is:
+1. Navigate to the 'sampleData' directory. A typical command line to convert the supplied P-file using this library is:
 
    ```bash
    pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P25088.7
