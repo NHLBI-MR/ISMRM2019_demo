@@ -207,6 +207,9 @@ else()
   list(APPEND ISMRMRD_TARGET_SOURCES libsrc/pugixml.cpp)
 endif()
 
+# Needed b/c of how static HDF5 included with Orchestra is built
+list(APPEND ISMRMRD_TARGET_LINK_LIBS ${CMAKE_DL_LIBS} pthread z)
+
 # main library
 include_directories(${ISMRMRD_TARGET_INCLUDE_DIRS})
 add_library(ismrmrd SHARED ${ISMRMRD_TARGET_SOURCES})

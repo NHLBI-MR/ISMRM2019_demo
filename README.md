@@ -10,7 +10,7 @@ Demo 2: Build your first gadget chain
 
 Demo 3: Siemens Scanner Setup
 
-Demo 4: GE Scanner demo
+Demo 4: GE raw data conversion demo
 
 Demo 5: Gadgetron - Matlab
 

@@ -10,18 +10,24 @@ Orchestra conversion tools
     docker run --name ismrm2019DemoGE -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/opt/local/orchestra --entrypoint "bash" -it fmrif:ismrm2019Demo
     ```
 
-1.  Define the `SDKTOP` environment variable:
+1.  Set an installation prefix for all software being built and installed here:
 
     ```bash
-    export SDKTOP=/opt/local/orchestra
+    export ISMRM_DEMO_PREFIX=/opt/local
+    ```
+
+2.  Define the `SDKTOP` environment variable:
+
+    ```bash
+    export SDKTOP=$ISMRM_DEMO_PREFIX/orchestra
     ```
 
 1. Define the `ISMRMRD_HOME` AND `GE_TOOLS_HOME` variables. These specify installation location(s), e.g.
 
     ```bash
-    export ISMRMRD_HOME=<prefix>/ismrmrd
-    export GE_TOOLS_HOME=<prefix>/ge-tools
-    export GADGETRON_HOME=<prefix>/gadgetron
+    export ISMRMRD_HOME=$ISMRM_DEMO_PREFIX/ismrmrd
+    export GE_TOOLS_HOME=$ISMRM_DEMO_PREFIX/ge-tools
+    export GADGETRON_HOME=$ISMRM_DEMO_PREFIX/gadgetron
     ```
 
 1. It's also useful to extend your home environment to include these new locations and the resourses in them
@@ -31,10 +37,10 @@ Orchestra conversion tools
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISMRMRD_HOME/lib:$GE_TOOLS_HOME/lib:$GADGETRON_HOME/lib
     ```
 
-1.  Obtain the ISMRMRD source code:
+1.  Go to the included ISMRMRD source code folder:
 
     ```bash
-    git clone https://github.com/ismrmrd/ismrmrd
+    cd $PATH_to_class_folder/ismrmrd
     ```
 
 1.  Pre-define the location of HDF5 in order to use Orchestra's static HDF5 library:
@@ -50,10 +56,10 @@ Orchestra conversion tools
 1. Configure, compile, and install ISMRMRD:
 
     ```bash
-    cd ismrmrd/
     mkdir build
     cd build/
-    cmake -D CMAKE_INSTALL_PREFIX=$ISMRMRD_HOME -D HDF5_USE_STATIC_LIBRARIES=yes -D CMAKE_EXE_LINKER_FLAGS="-lpthread -lz -ldl" ..
+    cmake -D CMAKE_INSTALL_PREFIX=$ISMRMRD_HOME -D HDF5_USE_STATIC_LIBRARIES=yes ..
+    make
     make install
     cd ../
     ```
