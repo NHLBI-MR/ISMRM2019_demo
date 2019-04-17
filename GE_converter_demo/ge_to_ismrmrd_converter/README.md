@@ -125,3 +125,33 @@ Orchestra conversion tools
     gadgetron_ismrmrd_client -f testdata.h5 -c fieldMapFloat.xml
     ```
 
+1. Now, navigate to the folder with the sample EPI data, and try to reconstruct as above, i.e.
+
+   ```bash
+   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_301496MR3T6MR_20180829_083635165.h5
+   ```
+
+   This should fail.
+
+1. Use the converter that properly handles EPI data:
+
+   ```bash
+   pfile2ismrmrd -v -l libp2i-NIH.so -p NIHepiConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_301496MR3T6MR_20180829_083635165.h5
+   ```
+
+1. Reconstruct this data with the default pipeline (in container with a running Gadgetron-instance):
+
+   ```bash
+    gadgetron_ismrmrd_client -f testdata.h5
+    ```
+
+1. And then with an reconstruct pipeline that is "EPI-aware" (again, in container with a running Gadgetron-instance):
+
+   ```bash
+   pushd . (stores the working directory location)
+   cd to 'gtConfig' directory
+   cp * $GADGETRON_HOME/share/gadgetron/config/
+   popd
+   gadgetron_ismrmrd_client -f testdata.h5 -c gtReconExampleGEEPI.xml
+   ```
+
