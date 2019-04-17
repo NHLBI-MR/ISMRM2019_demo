@@ -140,7 +140,7 @@ Orchestra conversion tools
     gadgetron_ismrmrd_client -f testdata.h5
     ```
 
-1. And then with an reconstruct pipeline that is "EPI-aware" (again, in container with a running Gadgetron-instance):
+1. And then with a reconstruct pipeline that is "EPI-aware" (again, in container with a running Gadgetron-instance):
 
    ```bash
    cp ../../ge_to_ismrmrd_converter/gtConfigs/* $GADGETRON_HOME/share/gadgetron/config/
