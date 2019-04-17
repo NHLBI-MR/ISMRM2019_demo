@@ -13,7 +13,7 @@ Orchestra conversion tools
 1.  Start the container for this portion of the demo with a command something like:
 
     ```bash
-    docker run --name ismrm2019DemoGE -e ISMRM_DEMO_PREFIX=$ISMRM_DEMO_PREFIX -v /Users:/home -v $PATH_to_local/orchestra-sdk-1.7-1/:$ISMRM_DEMO_PREFIX/orchestra --entrypoint "bash" -it fmrif:ismrm2019Demo
+    docker run --name ismrm2019DemoGE -e ISMRM_DEMO_PREFIX=$ISMRM_DEMO_PREFIX -v /Users:/home -v $HOME/2019-ISMRM-demo-orchestra/orchestra-sdk-1.7-1/:$ISMRM_DEMO_PREFIX/orchestra --entrypoint "bash" -it gadgetron_sans_hdf5
     ```
 
 1.  Define the `SDKTOP` environment variable:
