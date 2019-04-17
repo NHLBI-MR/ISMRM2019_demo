@@ -123,7 +123,7 @@ Orchestra conversion tools
 1. Now, in the 'converter' container, navigate to the folder with the sample EPI data, and try to reconstruct as above, i.e.
 
    ```bash
-   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_301496MR3T6MR_20180829_083635165.h5
+   pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_of_EPI.h5
    ```
 
    This should fail (i.e. number of converted acquisitions stored is 0).
@@ -131,7 +131,7 @@ Orchestra conversion tools
 1. Use the converter that properly handles EPI data:
 
    ```bash
-   pfile2ismrmrd -v -l libp2i-NIH.so -p NIHepiConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_301496MR3T6MR_20180829_083635165.h5
+   pfile2ismrmrd -v -l libp2i-NIH.so -p NIHepiConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_of_EPI.h5
    ```
 
 1. Then back in Gadgetron container, reconstruct this data with the default pipeline (in container with a running Gadgetron-instance):
