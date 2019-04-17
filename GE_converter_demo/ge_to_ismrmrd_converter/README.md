@@ -145,7 +145,7 @@ Orchestra conversion tools
 
    ```bash
    pushd .
-   cd to 'gtConfig' directory in the GE converter folder
+   cd to 'gtConfigs' directory in the GE converter folder
    cp * $GADGETRON_HOME/share/gadgetron/config/
    popd
    gadgetron_ismrmrd_client -f testdata.h5 -c gtReconExampleGEEPI.xml
