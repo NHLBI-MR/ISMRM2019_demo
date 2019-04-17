@@ -25,16 +25,15 @@ Orchestra conversion tools
 1. Define the `ISMRMRD_HOME` AND `GE_TOOLS_HOME` variables. These specify installation location(s), e.g.
 
     ```bash
-    export ISMRMRD_HOME=$ISMRM_DEMO_PREFIX/ismrmrd
-    export GE_TOOLS_HOME=$ISMRM_DEMO_PREFIX/ge-tools
-    export GADGETRON_HOME=$ISMRM_DEMO_PREFIX/gadgetron
+    export ISMRMRD_HOME=$ISMRM_DEMO_PREFIX
+    export GE_TOOLS_HOME=$ISMRM_DEMO_PREFIX
     ```
 
 1. It's also useful to extend your home environment to include these new locations and the resourses in them
 
     ```bash
-    export PATH=$PATH:$ISMRMRD_HOME/bin:$GE_TOOLS_HOME/bin:$GADGETRON_HOME/bin
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISMRMRD_HOME/lib:$GE_TOOLS_HOME/lib:$GADGETRON_HOME/lib
+    export PATH=$PATH:$ISMRMRD_HOME/bin:$GE_TOOLS_HOME/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISMRMRD_HOME/lib:$GE_TOOLS_HOME/lib
     ```
 
 1.  Go to the included ISMRMRD source code folder:
