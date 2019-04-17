@@ -111,8 +111,7 @@ Orchestra conversion tools
 1. Reconstruct the converted B0 field-map data set by installing the B0 field map computation gadget, and processing chain, the running the command:
 
     ```bash
-    pushd . (stores the working directory location)
-    cd ../../gadgetronExtras
+    pushd ../../gadgetronExtras (stores the working directory location)
     mkdir build
     cd build
     cmake ..
@@ -144,10 +143,7 @@ Orchestra conversion tools
 1. And then with an reconstruct pipeline that is "EPI-aware" (again, in container with a running Gadgetron-instance):
 
    ```bash
-   pushd .
-   cd to 'gtConfigs' directory in the GE converter folder
-   cp * $GADGETRON_HOME/share/gadgetron/config/
-   popd
+   cp ../../ge_to_ismrmrd_converter/gtConfigs/* $GADGETRON_HOME/share/gadgetron/config/
    gadgetron_ismrmrd_client -f testdata.h5 -c gtReconExampleGEEPI.xml
    ```
 
