@@ -60,7 +60,6 @@ Orchestra conversion tools
     cmake -D Boost_INCLUDE_DIR=$SDKTOP/include/recon/3p/Linux/boost_1_55_0_dev_linux64/include/ -D CMAKE_INSTALL_PREFIX=$ISMRMRD_HOME -D HDF5_USE_STATIC_LIBRARIES=yes ..
     make
     make install
-    cd ../
     ```
 
 1. Navigate to the GE converter source code folder:
@@ -76,7 +75,6 @@ Orchestra conversion tools
     cd build/
     cmake -D CMAKE_INSTALL_PREFIX=$GE_TOOLS_HOME ..
     make install
-    cd ../
     ```
 
 1. Navigate to the 'sampleData' directory. A typical command line to convert the supplied P-file using this library is:
