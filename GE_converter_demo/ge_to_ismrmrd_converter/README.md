@@ -83,14 +83,6 @@ Orchestra conversion tools
    pfile2ismrmrd -v -l libp2i-generic.so -p GenericConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P25088.7
    ```
 
-1. If customized conversion libraries are desired, the corresponding command will be:
-
-   ```bash
-   pfile2ismrmrd -v -l libp2i-NIH.so -p NIH2dfastConverter -x $GE_TOOLS_HOME/share/ge-tools/config/default.xsl P25088.7
-   ```
-
-   The source code that enables this example is included with these tools.  This example is a straightforward copy of the GenericConverter, but it shows how these classes can be inherited from and implemented.
-
 1. Similarly, a typical command line to convert an example ScanArchive file using this library is:
 
    ```bash
@@ -110,7 +102,7 @@ Orchestra conversion tools
     docker exec -it gadgetron bash
     ```
 
-1. Reconstruct one of the converted data sets by sending to Gadgetron:
+1. Reconstruct one of the converted data sets by navigating to the directory with the just converted GE raw data file, and sending to Gadgetron:
 
     ```bash
     gadgetron_ismrmrd_client -f testdata.h5
@@ -119,6 +111,12 @@ Orchestra conversion tools
 1. Reconstruct the converted B0 field-map data set by installing the B0 field map computation gadget, and processing chain, the running the command:
 
     ```bash
+    pushd . (stores the working directory location)
+    cd ../../gadgetronExtras
+    mkdir build
+    cd build
+    cmake ..
+    popd
     gadgetron_ismrmrd_client -f testdata.h5 -c fieldMapFloat.xml
     ```
 
@@ -145,7 +143,7 @@ Orchestra conversion tools
 1. And then with an reconstruct pipeline that is "EPI-aware" (again, in container with a running Gadgetron-instance):
 
    ```bash
-   pushd . (stores the working directory location)
+   pushd .
    cd to 'gtConfig' directory
    cp * $GADGETRON_HOME/share/gadgetron/config/
    popd
