@@ -4,16 +4,16 @@ Orchestra conversion tools
 
 ## Steps and commands to build and install the tools, convert GE raw files into ISMRMRD files, and perform reconstructions using the Gadgetron:
 
-1.  Start the container for this portion of the demo with a command something like:
-
-    ```bash
-    docker run --name ismrm2019DemoGE -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/opt/local/orchestra --entrypoint "bash" -it fmrif:ismrm2019Demo
-    ```
-
 1.  Set an installation prefix for all software being built and installed here:
 
     ```bash
-    export ISMRM_DEMO_PREFIX=/opt/local
+    export ISMRM_DEMO_PREFIX=/usr/local
+    ```
+
+1.  Start the container for this portion of the demo with a command something like:
+
+    ```bash
+    docker run --name ismrm2019DemoGE -e ISMRM_DEMO_PREFIX=$ISMRM_DEMO_PREFIX -v /Users:/home -v $HOME/my_root/orchestra-sdk-1.7-1/:/opt/local/orchestra --entrypoint "bash" -it fmrif:ismrm2019Demo
     ```
 
 1.  Define the `SDKTOP` environment variable:
