@@ -116,6 +116,7 @@ Orchestra conversion tools
     mkdir build
     cd build
     cmake ..
+    make install
     popd
     gadgetron_ismrmrd_client -f testdata.h5 -c fieldMapFloat.xml
     ```
