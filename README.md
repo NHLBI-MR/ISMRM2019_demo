@@ -18,16 +18,11 @@ Demos presented in this repo was prepared by :
 
 **Adri Campbell, Peter Kellman** : National Heart Lung and Blood Institute (NHLBI), National Institutes of Health, Betheda, USA
 
-
-
-  Demo 1: Gadgetron installation and setup - **David Hansen**
-
-  Demo 2: Build your first gadget chain - **David Hansen**
-
-  Demo 3: Siemens Scanner Setup - **Hui Xue**
-
-  Demo 4: Gadgetron - GE scanner interaction - **Vinai Roopchansingh and John  Derbyshire**
-
-  Demo 5: Gadgetron - Matlab for neuro imaging - **Oliver Joseph and Martina Callaghan**
-
-  Demo 6: Build an AI recon inside Gadgetron - **Hui Xue**
+|                  Demo                 |    Presenter  |
+| --------------------------------------|:-------------:|
+| Gadgetron installation and setup      | David Hansen  | 
+| Build your first gadget chain         | David Hansen  |
+| Siemens Scanner Setup                 | Hui Xue       |
+| GE scanner interaction                | Vinai Roopchansingh and John  Derbyshire |
+| Gadgetron - Matlab for neuro imaging  | Oliver Joseph and Martina Callaghan      |
+| Build an AI recon inside Gadgetron    | Hui Xue       |
