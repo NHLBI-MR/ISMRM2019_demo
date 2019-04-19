@@ -105,3 +105,10 @@ git clone https://github.com/NHLBI-MR/ISMRM2019_demo.git
 cd ISMRM2019_demo
 sh ./setup_gadgetron_local.sh -r -t Release
 ```
+Then add the following to `~/.bashrc`:
+```
+export GADGETRON_HOME=~/local 
+export ISMRMRD_HOME=~/local
+export PATH=$PATH:$GADGETRON_HOME/bin:$ISMRMRD_HOME/bin 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISMRMRD_HOME/lib:$GADGETRON_HOME/lib
+```
