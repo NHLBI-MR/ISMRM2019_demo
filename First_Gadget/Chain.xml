@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <version>2</version>
+    <readers>
+        <reader>
+            <dll>gadgetron_core_readers</dll>
+            <classname>AcquisitionReader</classname>
+        </reader>
+        <reader>
+            <dll>gadgetron_core_readers</dll>
+            <classname>WaveformReader</classname>
+        </reader>
+    </readers>
+    <writers>
+        <writer>
+            <dll>gadgetron_core_writers</dll>
+            <classname>ImageWriter</classname>
+        </writer>
+    </writers>
+    <stream>
+        <gadget>
+            <name>Recon</name>
+            <dll>Recon</dll>
+            <classname>SimpleRecon</classname>
+        </gadget>
+        <gadget>
+            <name>ComplexToFloat</name>
+            <dll>gadgetron_mricore</dll>
+            <classname>ComplexToFloatGadget</classname>
+        </gadget>
+
+    </stream>
+</configuration>
