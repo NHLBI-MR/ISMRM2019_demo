@@ -12,7 +12,7 @@ Demos presented in this repo was prepared by :
 
 **David Hansen** : Gradient Software Inc., Denmark 
 
-**Oliver Joseph, Martina Callaghan** : Wellcome Trust Centre for Neuroimaging, London, UK
+**Oliver Josephs, Martina Callaghan** : Wellcome Trust Centre for Neuroimaging, London, UK
 
 **Vinai Roopchansingh, John  Derbyshire** : National Institute of Mental Health (NIMH), National Institutes of Health, Betheda, USA
 
@@ -26,7 +26,7 @@ Demos presented in this repo was prepared by :
 | Build your first gadget chain         | David Hansen  |
 | Siemens Scanner Setup                 | Hui Xue       |
 | GE scanner interaction                | Vinai Roopchansingh and John  Derbyshire |
-| Gadgetron - Matlab for neuro imaging  | Oliver Joseph and Martina Callaghan      |
+| Gadgetron - Matlab for neuro imaging  | Oliver Josephs and Martina Callaghan      |
 | Build an AI recon inside Gadgetron    | Hui Xue       |
 
 ### AWS virtual machine
