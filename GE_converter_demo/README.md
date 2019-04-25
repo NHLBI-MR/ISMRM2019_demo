@@ -13,3 +13,8 @@
 1.  **Linux** Orchestra environment, already installed in container without system HDF5, or on user's host system,
     and can be mounted to container.
 
+1.  Please go into the "ge_to_ismrmrd_converter" folder, and go through steps 1-10 of the demonstration, i.e. have
+    your environment / container set up, and ISMRMRD and GE-to-ISMRMRD already built, installed, and ready for use,
+    if you want to follow along with the class demonstrations in real time.  The build process using Orchestra is
+    rather lengthy, and would otherwise not allow any time for demonstration.
+
