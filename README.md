@@ -20,15 +20,15 @@ Demos presented in this repo was prepared by :
 
 **Adri Campbell, Peter Kellman** : National Heart Lung and Blood Institute (NHLBI), National Institutes of Health, Betheda, USA
 
-|                  Demo                 |    Presenter  |
-| --------------------------------------|:-------------:|
-| Gadgetron installation and setup      | David Hansen  | 
-| Build your first gadget chain         | David Hansen  |
-| Siemens Scanner Setup                 | Hui Xue       |
-| GE scanner interaction                | Vinai Roopchansingh and John  Derbyshire |
-| Gadgetron - Matlab for neuro imaging  | Oliver Josephs and Martina Callaghan      |
-| Gadgetron - Bart T1                   | Valery Ozenne, Aurélien Trotier      |
-| Build an AI recon inside Gadgetron    | Hui Xue       |
+|                  Demo                 |    Presenter  |     Duration   |
+| --------------------------------------|:-------------:|:--------------:|
+| Gadgetron installation and setup      | David Hansen  |  4  mins       |
+| Build your first gadget chain         | David Hansen  |  10 mins       |
+| Siemens Scanner Setup                 | Hui Xue       |   5 mins       |
+| GE scanner interaction                | Vinai Roopchansingh and John  Derbyshire |   8 mins       |
+| Gadgetron - Matlab for neuro imaging  | Oliver Josephs and Martina Callaghan      |   8 mins       |
+| Gadgetron - Bart T1                   | Valery Ozenne, Aurélien Trotier      |   5 mins       |
+| Build an AI recon inside Gadgetron    | Hui Xue       |   5 mins       |
 
 ### AWS virtual machine
 
