@@ -27,6 +27,7 @@ Demos presented in this repo was prepared by :
 | Siemens Scanner Setup                 | Hui Xue       |
 | GE scanner interaction                | Vinai Roopchansingh and John  Derbyshire |
 | Gadgetron - Matlab for neuro imaging  | Oliver Josephs and Martina Callaghan      |
+| Gadgetron - Bart T1                   | Valery Ozenne, Aurélien Trotier      |
 | Build an AI recon inside Gadgetron    | Hui Xue       |
 
 ### AWS virtual machine
