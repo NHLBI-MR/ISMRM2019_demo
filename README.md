@@ -32,9 +32,9 @@ Demos presented in this repo was prepared by :
 
 ### AWS virtual machine
 
-A amazon EC2 virtual machine was set up for the demo session. The public dns is :
+A amazon EC2 image was set up for the demo session. Gadgetron is pre-installed in this virtual machine, together with all demo materials:
 ```
-ec2-3-14-64-140.us-east-2.compute.amazonaws.com
+AMI Name : Gadgetron_ISMRM_2019_Demo_Image
 ```
 ### AWS instance set up
 The gadgetron and ismrmrd are already intalled in this instance.
