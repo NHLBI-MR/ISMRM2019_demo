@@ -87,19 +87,19 @@ echo "NVCC_FLAG is ${NVCC_FLAG}"
 # --------------------------------------------------------------------------------------------
 # github
 
-ISMRMRD_REPO=git@github.com:ismrmrd/ismrmrd.git
+ISMRMRD_REPO=https://github.com/ismrmrd/ismrmrd.git
 ISMRMRD_BRANCH=${BRANCHNAME}
 
-GT_REPO=git@github.com:gadgetron/gadgetron.git
+GT_REPO=https://github.com/gadgetron/gadgetron.git
 GT_BRANCH=${BRANCHNAME}
 
-GT_CONVERTER_REPO=git@github.com:ismrmrd/siemens_to_ismrmrd.git
+GT_CONVERTER_REPO=https://github.com/ismrmrd/siemens_to_ismrmrd.git
 GT_CONVERTER_BRANCH=${BRANCHNAME}
 
-ISMRMRD_PYTHON_API_REPO=git@github.com:ismrmrd/ismrmrd-python.git
+ISMRMRD_PYTHON_API_REPO=https://github.com/ismrmrd/ismrmrd-python.git
 ISMRMRD_PYTHON_API_BRANCH=${BRANCHNAME}
 
-ISMRMRD_PYTHON_TOOLS_REPO=git@github.com:ismrmrd/ismrmrd-python-tools.git
+ISMRMRD_PYTHON_TOOLS_REPO=https://github.com/ismrmrd/ismrmrd-python-tools.git
 ISMRMRD_PYTHON_TOOLS_BRANCH=${BRANCHNAME}
 
 # ----------------------------------------------------------------------------------------------------------
