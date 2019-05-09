@@ -1,0 +1,1 @@
+pfile2ismrmrd -v -l libp2i-NIH.so -p NIHepiConverter -x $GE_TOOLS_HOME/share/ge-tools/config/epiRT.xsl ScanArchive_of_EPI.h5
