@@ -51,7 +51,8 @@ gadgetron
 To run the gadgetron integration test, open another terminal and type:
 ```
 cd ~/mrprogs/gadgetron/test/integration
-python3 run_tests.py -G ~/local -I ~/local ./cases/*.cfg
+python3 get_data.py
+python3 run_tests.py -G ~/local -I ~/local -e -p 9002 ./cases/*.cfg
 ```
 
 ### To perform the demo
