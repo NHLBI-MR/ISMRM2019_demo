@@ -1,0 +1,3 @@
+rm -f out.h5 image_*.png
+gadgetron_ismrmrd_client -f testdata.h5
+ismrmrd2png 
