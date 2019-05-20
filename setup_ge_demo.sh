@@ -22,8 +22,10 @@ ismrmrd2png()
 	nslice=$( echo $line | sed -e 's@.*{@@' -e 's@/.*@@')
 
 	for (( slice=0; slice<$nslice; ++slice )); do
-	    h5topng -x $slice -r -d "$group_name"/$imgset/data -o ${imgset}_$( printf "%02d" $slice ).png out.h5
+	    h5topng -x $slice -r -d "$group_name"/$imgset/data -o temp.png out.h5
+	    convert temp.png -transpose ${imgset}_$( printf "%02d" $slice ).png 
 	done
+	rm -f temp.png
     done
 }
 
@@ -94,10 +96,12 @@ ismrmCmds()
     case "$ISMRM_DEMO_TYPE" in
 	GADGETRON)
 	    history -r .ismrm_gadgetron_cmds.txt
+	    cp .ismrm_gadgetron_cmds.txt /root/.bash_history
 	    ;;
 	
 	CONVERTER)
 	    history -r .ismrm_converter_cmds.txt
+	    cp .ismrm_converter_cmds.txt /root/.bash_history
 	    ;;
     esac
 }
